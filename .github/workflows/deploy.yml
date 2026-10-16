@@ -57,13 +57,13 @@ jobs:
       DEPLOY_PREVIEW_WORKER: ${{ inputs.deploy_preview && 'true' || 'false' }}
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           # 强制更新通过可复用工作流传入目标提交，避免推送后仍部署触发任务的旧版本。
           ref: ${{ inputs.deployment_ref || github.sha }}
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 22.12.0
           cache: npm
